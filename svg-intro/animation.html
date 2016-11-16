@@ -5,7 +5,13 @@
         <style>
             .container {
                 width: 800px;
-                margin: 300px auto;
+                margin: 50px auto;
+            }
+
+            svg {
+                border: solid 1px #efefef;
+                float: left;
+                margin: 5px;
             }
         </style>
     </head>
@@ -21,13 +27,37 @@
             <svg width="300" height="300">
                 <!-- motion path -->
                 <path id="motionPath"
-                    d="M-141.333,218C-60,138.667,20,39.333,74.667,45.333,214.667,200,244.667,200"
+                    d="M-141.333,218C-60,138.667,20,39.333,74.667,45.333s214.667,200,244.667,200"
                     stroke="#ccc" stroke-width="3" fill="none" />
                 <!--animated item-->
-                <circle cx="" cy="" r="40">
-                    <animatedMotion dur="3s" repeatedCount="indefinite">
-                        <mpath= xlink:href="#motionpath" />
-                    </animatedmotion>
+                <circle cx="" cy="" r="10" fill="#aaa">
+                    <animateMotion dur="3s" repeatCount="indefinite">
+                        <mpath xlink:href="#motionPath" />
+                    </animateMotion>
+                </circle>
+            </svg>
+
+            <svg width="300" height="300">
+                <rect x="75" y="75" width="150" height="150" fill="#2288222">
+                    <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 150 150"
+                        to="360 150 150"
+                        dur="5s"
+                        repeatCount="indefinite"
+                    />
+                </rect>
+            </svg>
+
+            <svg width="300" height="300">
+                <circle cx="150" cy="150" r="10">
+                    <set
+                        attributeName="r"
+                        to="100"
+                        begin="3s"
+                        fill="freeze"
+                    />
                 </circle>
         </div>
 
