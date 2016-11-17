@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SnapSVG</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script>
+</head>
+<body>
+
+<svg viewBox="0 0 100 100" class="main">
+    <g class="boxes">
+        <rect class="box1" x="0" y="0" height="20" width="20" fill="#aaa" />
+        <rect class="box2" x="25" y="0" height="20" width="20" fill="#228822" />
+    </g>
+</svg>
+
+<script type="text/javascript">
+    var s = Snap(100, 100);
+    var bigCircle = s.circle(20, 20, 5);
+</script>
+
+</body>
+</html>

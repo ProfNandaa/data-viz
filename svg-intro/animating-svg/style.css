@@ -1,0 +1,42 @@
+.boxes rect {
+    width: 20px;
+    height: 20px;
+}
+
+@keyframes pulsateBox1
+{
+    0% {
+        fill: #538B93;
+    }
+
+    50% {
+        fill: #0F5156;
+    }
+
+    100% {
+        fill: #538B93;
+    }
+}
+
+@keyframes pulsateBox2
+{
+    0% {
+        fill: #0F5156;
+    }
+
+    50% {
+        fill: #538B93;
+    }
+
+    100% {
+        fill: #0F5156;
+    }
+}
+
+.box1 {
+    animation: pulsateBox1 1s infinite;
+}
+
+.box2 {
+    animation: pulsateBox2 1s infinite;
+}
