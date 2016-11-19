@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Getting Started with D3</title>
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+<p>Drawing SVG shapes with D3</p>
+<svg>
+    <rect width="50" height="200" style="fill: blue" />
+</svg>
+
+<div class="with-d3"></div>
+
+<script type="text/javascript">
+    d3.select(".with-d3")
+        .append("svg")
+        .append("rect")
+            .attr("width", 50)
+            .attr("height", 200)
+            .style("fill", "blue");
+</script>
+</body>
+</html>
