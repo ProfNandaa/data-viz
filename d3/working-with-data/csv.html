@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>D3 | CSV Data</title>
+        <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+    </head>
+    <body>
+        
+    
+    <script>
+        const h = 100;
+        const w = 400;
+        let ds;
+
+        d3.csv("data/MonthlySales.csv", (err, data) => {
+            if (err) {
+                console.error(err);
+            } else {
+                console.log(data);
+                ds = data;
+            }
+
+            let lineFn = d3.svg.line()
+                .x(d => ((d.month - 20130001) / 3.25))
+                .y(d => (h - d.sales))
+                .interpolate("linear");
+            
+            let svg = d3.select("body")
+                        .append("svg")
+                            .attr({ width: w, height: h });
+            
+            let viz = svg.append("path")
+                        .attr({
+                            d: lineFn(ds),
+                            stroke: "purple",
+                            "stoke-width": 2,
+                            fill: "none"
+                        });
+        });
+    </script>
+    </body>
+</html>
