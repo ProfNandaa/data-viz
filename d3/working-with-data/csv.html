@@ -12,14 +12,7 @@
         const w = 400;
         let ds;
 
-        d3.csv("data/MonthlySales.csv", (err, data) => {
-            if (err) {
-                console.error(err);
-            } else {
-                console.log(data);
-                ds = data;
-            }
-
+        function buildLine() {
             let lineFn = d3.svg.line()
                 .x(d => ((d.month - 20130001) / 3.25))
                 .y(d => (h - d.sales))
@@ -36,6 +29,36 @@
                             "stoke-width": 2,
                             fill: "none"
                         });
+        }
+
+        function showTotals(ds) {
+            let t = d3.select("body").append("table"),
+                salesTotal = 0.0;
+            // get total
+            for (let i=0; i < ds.length; i++) {
+                salesTotal += ds[i]['sales'] * 1; // convert to number
+            }
+
+            let salesAvg = salesTotal / ds.length;
+            // add total to table
+            let tr = t.selectAll("tr")
+                        .data([1])
+                        .enter()
+                        .append("tr")
+                        .append("td")
+                        .text("Sales Total: " + salesTotal);
+        }
+
+        d3.csv("data/MonthlySales.csv", (err, data) => {
+            if (err) {
+                console.error(err);
+            } else {
+                console.log(data);
+                ds = data;
+            }
+
+            buildLine();
+            showTotals(ds);
         });
     </script>
     </body>
